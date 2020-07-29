@@ -6,7 +6,7 @@ this project is SocialLogin Sample
 2. Kakao Login
 3. Naver Login
 
-with singleton pattern + databinding
+with Kotlin based + singleton pattern + databinding
 
 ## step1 Google Login
 
