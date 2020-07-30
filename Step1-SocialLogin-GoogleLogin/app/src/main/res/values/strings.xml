@@ -5,5 +5,6 @@
     <string name="ID">Write ID</string>
     <string name="PW">Write PW</string>
     <string name="Auto_Login">AutoLogin</string>
+    <string name="LogOut">LogOut</string>
     <string name="Forget_ID">If forget ID, PW Click Here</string>
 </resources>

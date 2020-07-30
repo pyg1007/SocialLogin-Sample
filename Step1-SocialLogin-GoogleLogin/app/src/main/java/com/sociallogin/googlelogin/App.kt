@@ -5,8 +5,8 @@ import com.google.firebase.auth.FirebaseAuth
 
 class App : Application() {
 
-    companion object{
-        fun getInstance(): FirebaseAuth{
+    companion object {
+        fun getInstance(): FirebaseAuth {
             return FirebaseAuth.getInstance()
         }
     }
