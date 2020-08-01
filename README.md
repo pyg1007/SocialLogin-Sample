@@ -26,8 +26,12 @@ android{
 
 ## step1 Google Login
 
-Google Login need firebase  
-connect https://console.firebase.google.com/  
+Google Login need firebase connect this url  
+<pre>
+<code>
+https://console.firebase.google.com/
+</code>
+</pre>
 create firebase project and add android  
 next, Authentication -> Sign-in-method -> Google use
     
@@ -78,6 +82,87 @@ dependencies{
 after, Sync Now
 
 ## step2 Kakao Login
+
+Kakao Developers connect this url  
+<pre>
+<code>
+https://developers.kakao.com/
+</code>
+</pre>
+
+Kakao Developer site login is required. After logging in, enter the Kakao Login product introduction and apply to use the Kakao API at the bottom.
+
+After adding the application, enter the platform on the left and register the Android platform.
+
+The package name and key hash are required. The package name is obtained from the Manifest, and the key hash is obtained as follows.
+
+<pre>
+<code>
+override fun onCreate(savedInstanceState: Bundle?) {
+    super.onCreate(savedInstanceState)
+    Log.e("HashKey : ", getHashKey().toString())
+}
+
+private fun getHashKey(): String?{
+    val packageInfo: PackageInfo
+    try {
+        if (Build.VERSION.SDK_INT >= 28) {
+            packageInfo = packageManager.getPackageInfo(
+                packageName,
+                PackageManager.GET_SIGNING_CERTIFICATES
+            )
+
+            val signatures = packageInfo.signingInfo.apkContentsSigners
+            val md = MessageDigest.getInstance("SHA")
+            for (signature in signatures){
+                md.update(signature.toByteArray())
+                return String(Base64.encode(md.digest(), NO_WRAP))
+            }
+        }else{
+            packageInfo = packageManager.getPackageInfo(
+                packageName,
+                PackageManager.GET_SIGNATURES
+            ) ?: return null
+            for (signature in packageInfo.signatures){
+                try{
+                    val md = MessageDigest.getInstance("SHA")
+                    md.update(signature.toByteArray())
+                    return String(Base64.encode(md.digest(), NO_WRAP))
+                }catch (e : NoSuchAlgorithmException){
+                    e.printStackTrace()
+                }
+            }
+        }
+    }catch (e: PackageManager.NameNotFoundException){
+        e.printStackTrace()
+    }catch (e: NoSuchAlgorithmException){
+        e.printStackTrace()     
+    }
+    return null
+}
+</code>
+</pre>
+
+You can get the hash value by running the project and viewing the log. Add log values to the previous hash.
+
+Register the native app key as Meta-data in the manifest.
+
+<pre>
+<code>
+
+<application
+  ...
+  ...>
+  <meta-data
+      android:name="com.kakao.sdk.AppKey"
+      android:value="your_kakao_native_appKey" />
+  ...
+</application>
+
+</code>
+</pre>
+
+Set the necessary items in the consent item in the product setting column on the left.
 
 ## step3 Naver Login
  
