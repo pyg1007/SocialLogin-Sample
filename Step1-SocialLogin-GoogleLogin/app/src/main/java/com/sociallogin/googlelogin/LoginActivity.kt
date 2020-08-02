@@ -29,13 +29,20 @@ class LoginActivity : AppCompatActivity() {
             .requestEmail()
             .build()
 
+        googleSignInClient = GoogleSignIn.getClient(this, gso)
 
         googleButton()
     }
 
+    override fun onStart() {
+        super.onStart()
+        val currentUser = App.getInstance().currentUser
+        if (currentUser!= null)
+            signIn()
+    }
+
     private fun googleButton() {
         loginActivityBinding.googleSignInButton.setOnClickListener {
-            googleSignInClient = GoogleSignIn.getClient(this, gso)
             signIn()
         }
     }
