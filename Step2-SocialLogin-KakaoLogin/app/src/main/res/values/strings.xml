@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">My Application</string>
+    <string name="ProjectName">Sample SocialLogin</string>
+    <string name="Login">Login</string>
+    <string name="ID">Write ID</string>
+    <string name="PW">Write PW</string>
+    <string name="Auto_Login">AutoLogin</string>
+    <string name="LogOut">LogOut</string>
+    <string name="Forget_ID">If forget ID, PW Click Here</string>
+
+    <!-- put your kakao_native_appKey -->
+    <string name="kakao_native_appKey">your-native-appKey</string>
 </resources>

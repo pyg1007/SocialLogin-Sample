@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".LoginActivity">
+
+        <TextView
+            android:id="@+id/Logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50sp"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="@string/ProjectName"
+            android:textSize="30sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/Edit_ID"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="100dp"
+            android:hint="@string/ID"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Logo"
+            app:layout_constraintWidth_percent="0.5" />
+
+        <EditText
+            android:id="@+id/Edit_PassWord"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            android:hint="@string/PW"
+            android:importantForAutofill="no"
+            android:inputType="textPassword"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/Edit_ID"
+            app:layout_constraintWidth_percent="0.5" />
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/Login"
+            app:layout_constraintLeft_toRightOf="@id/Edit_PassWord"
+            app:layout_constraintTop_toBottomOf="@id/Edit_ID"
+            app:layout_constraintWidth_percent="0.2" />
+
+        <TextView
+            android:id="@+id/forgetID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/Forget_ID"
+            app:layout_constraintLeft_toRightOf="@id/autoLogin"
+            app:layout_constraintTop_toBottomOf="@id/Edit_PassWord" />
+
+        <CheckBox
+            android:id="@+id/autoLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="@string/Auto_Login"
+            app:layout_constraintLeft_toLeftOf="@id/Edit_PassWord"
+            app:layout_constraintTop_toBottomOf="@id/Edit_PassWord" />
+
+        <com.kakao.usermgmt.LoginButton
+            android:id="@+id/KakaoLoginButton"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="25dp"
+            app:layout_constraintWidth_percent="0.5"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/autoLogin" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
