@@ -149,4 +149,42 @@ Register the native app key as Meta-data in the manifest.
 Set the necessary items in the consent item in the product setting column on the left.
 
 ## step3 Naver Login
- 
+
+Please access the url below  
+```
+https://developers.naver.com/docs/login/android/
+```
+
+Apply for the use of Open API on the site.  
+
+Required permissions are checked as required.  
+
+Next, go into the library view on that site.  
+
+Download the latest version from Git as a zip.  
+
+After unzipping the zip, move the .aar file in the naveridlogin android sdk folder into the android studio app-libs.  
+
+### Where is libs
+1. Change the Android in the upper left corner of Android Studio to Project.
+2. Tap the folder to enter the app.
+3. There is a libs folder.
+
+Add the following to your gradle.  
+build.gradle(Module: app)
+```
+dependencies {
+  implementation files('libs/naveridlogin_android_sdk_4.2.6.aar')
+}
+```
+
+Add the following to the ProGuard rule.  
+proguard-rules.pro
+```
+-keep public class com.nhn.android.naverlogin.** {
+       public protected *;
+}
+```
+
+
+
