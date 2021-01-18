@@ -37,7 +37,7 @@ class LoginActivity : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
         val currentUser = App.getInstance().currentUser
-        if (currentUser!= null)
+        if (currentUser != null)
             signIn()
     }
 
